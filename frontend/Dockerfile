@@ -1,10 +1,12 @@
+# Build stage
 FROM node:18 AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run build --verbose && ls -la /app/build
 
+# Production stage
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
