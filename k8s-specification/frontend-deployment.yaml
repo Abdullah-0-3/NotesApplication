@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: your-dockerhub-username/notes-frontend:latest
+        image: muhammadabdullahabrar/notes-app:frontend
         ports:
         - containerPort: 80
